@@ -27,7 +27,7 @@ func (u user) validatePassword(p string) bool {
 		}
 		return true
 	}
-	return true
+	return false
 }
 
 // email should have @ symbol and end with .com
@@ -36,7 +36,7 @@ func (u user) validateEmail(e string) bool {
 	at := "@"
 	u.Email = e
 	if strings.Contains(e, at) {
-		if strings.ContainsAny(e, end) {
+		if strings.Contains(e, end) {
 			return true
 		}
 	}
@@ -47,8 +47,8 @@ func main() {
 	user1 := user{
 		ID:       007,
 		Username: "Santy",
-		Password: "Password123!",
-		Email:    "tes@yahoo.com",
+		Password: "Pass12",
+		Email:    "test@yaho.com",
 	}
-	fmt.Printf("Username: ", user1.Username, "with ID: ", user1.ID, "email validation =", user1.validateEmail(user1.Email), "and password validation =", user1.validatePassword(user1.Password))
+	fmt.Println("Username: ", user1.Username, "with ID: ", user1.ID, "email validation=", user1.validateEmail(user1.Email), "and password validation=", user1.validatePassword(user1.Password))
 }
